@@ -19,3 +19,5 @@ Startup script will run:
 The 2 instances of the blockexplorer app sit behind nginx, nginx acts as a proxy. Consul template is used so if a new block explorer
 instance is booted up it will automatically be added to nginx config and therefore will be load balanced also. 
 
+Once up and running you should be able to nav to <docker-ip>:8080/app
+
