@@ -1,0 +1,11 @@
+ upstream myapp1 {
+ {{range service "blockexplorer"}}server {{.NodeAddress}}:{{.Port}} max_fails=3 fail_timeout=60 weight=1;
+  {{else}}server 127.0.0.1:65535; # force a 502{{end}} 
+}
+ server {
+    listen *:80;
+    server_name "";
+    location / {
+        proxy_pass http://myapp1;
+    }
+}
