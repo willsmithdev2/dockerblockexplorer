@@ -1,0 +1,39 @@
+consul:
+  image: progrium/consul 
+  ports:
+   - "8400:8400"
+   - "8500:8500"
+   - "8600:53/udp"
+  container_name: consul
+  hostname: consul
+  command: "-server -advertise $DOCKER_IP -bootstrap"
+
+registrator:
+  image: gliderlabs/registrator
+  container_name: registrator
+  hostname: registrator
+  command: "consul://$DOCKER_IP:8500"
+  volumes: 
+   - /var/run/docker.sock:/tmp/docker.sock
+  
+nginx:
+  image: willsmithdev/nginx-consul
+  ports:
+   - "8080:80"
+  container_name: nginx 
+  links:
+   - consul:consul
+   
+blockexplorer:
+  image: willsmithdev/blockexplorer
+  ports: 
+  - "8000"
+  container_name: app1 
+  hostname: app1
+  
+blockexplorer2:
+  image: willsmithdev/blockexplorer
+  ports: 
+  - "8000"
+  container_name: app2 
+  hostname: app2
