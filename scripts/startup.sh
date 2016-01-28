@@ -2,8 +2,7 @@
 #This env variable is needed to know the IP address of the boot2docker IP. May requre tinkering. 
 export DOCKER_IP="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 
-
-pwd
+cd /scripts
 ls $pwd
 
 
