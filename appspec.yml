@@ -25,7 +25,6 @@ os: linux
 files:
   - source: scripts
     destination: /scripts
-	
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
 #   section here that describes special permissions to apply to the files 
@@ -43,7 +42,7 @@ permissions:
     mode: 777 
     type:
       - file
-	- object: /scripts
+  - object: /scripts
     pattern: "*.yml"
     owner: ubuntu
     mode: 777 
