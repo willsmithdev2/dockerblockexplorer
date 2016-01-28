@@ -25,6 +25,7 @@ os: linux
 files:
   - source: scripts
     destination: /scripts
+	
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
 #   section here that describes special permissions to apply to the files 
@@ -38,10 +39,16 @@ files:
 permissions:
   - object: /scripts/
     pattern: "*.sh"
-    owner: ubuntu 
+    owner: ubuntu
     mode: 777 
     type:
       - file
+	- object: /scripts
+    pattern: "*.yml"
+    owner: ubuntu
+    mode: 777 
+    type:
+      - file  
 # If you are not running any commands on the instance, then remove 
 #   the "hooks" section altogether. A blank or incomplete "hooks" section
 #   may cause associated deployments to fail.
