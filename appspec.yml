@@ -39,7 +39,6 @@ permissions:
   - object: /scripts/
     pattern: "*.sh"
     owner: ubuntu 
-    group: wheel
     mode: 777 
     type:
       - file
