@@ -38,13 +38,13 @@ files:
 permissions:
   - object: /scripts/
     pattern: "*.sh"
-    owner: ubuntu
+    owner: root
     mode: 777 
     type:
       - file
   - object: /scripts
     pattern: "*.yml"
-    owner: ubuntu
+    owner: root 
     mode: 777 
     type:
       - file  
@@ -79,6 +79,6 @@ hooks:
   ApplicationStart:
     - location: /scripts/startup.sh    
       timeout: 300
-      runas: ubuntu
+      runas: root 
 
 
